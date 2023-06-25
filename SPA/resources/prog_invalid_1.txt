@@ -1,0 +1,31 @@
+function square(n) {
+    return n * n;
+}
+
+function abs(n) {
+    x = 0;
+    if (n >= 0) then { return n; }else { return -n;}
+}
+
+function sqrt(n) {
+    next1 = n;
+    while (n == n) {
+        next2 = (1 / 2) * (next1 + (n / next1));
+        diff = next2 - next1
+        abs_diff = abs(diff);
+        if (abs_diff == 01) then {
+            return next2;
+        } else {
+            next1 = next2;
+        }
+    }
+    return n;
+}
+
+function main() {
+    read x;
+    read y;
+    hypo = square(x) + square(y);
+    hypo = sqrt(hypo);
+    print hypo;
+}
