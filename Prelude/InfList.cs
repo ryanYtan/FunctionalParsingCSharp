@@ -2,49 +2,48 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Prelude
+namespace Prelude;
+
+public static class InfList
 {
-    public static class InfList
+    public static IEnumerable<T> Cycle<T>(this IEnumerable<T> instance)
     {
-        public static IEnumerable<T> Cycle<T>(this IEnumerable<T> instance)
+        IList<T> lst = instance.ToList();
+        if (lst.Count == 0)
         {
-            IList<T> lst = instance.ToList();
-            if (lst.Count == 0)
-            {
-                throw new ArgumentException("Attempting to cycle on empty IEnumerable");
-            }
-            var i = 0;
-            while (true)
-            {
-                i = i >= lst.Count ? i % lst.Count : i;
-                yield return lst[i];
-                i++;
-            }
+            throw new ArgumentException("Attempting to cycle on empty IEnumerable");
         }
-
-        public static IEnumerable<T> Replicate<T>(T item, uint count = uint.MaxValue)
+        var i = 0;
+        while (true)
         {
-            for (var i = 0; i < count; i++)
-            {
-                yield return item;
-            }
+            i = i >= lst.Count ? i % lst.Count : i;
+            yield return lst[i];
+            i++;
         }
+    }
 
-        public static IEnumerable<T> Iterate<T>(T seed, Func<T, T> next)
+    public static IEnumerable<T> Replicate<T>(this T item, uint count = uint.MaxValue)
+    {
+        for (var i = 0; i < count; i++)
         {
-            while (true)
-            {
-                yield return seed;
-                seed = next(seed);
-            }
+            yield return item;
         }
+    }
 
-        public static IEnumerable<T> Generate<T>(Func<T> supplier)
+    public static IEnumerable<T> Iterate<T>(this T seed, Func<T, T> next)
+    {
+        while (true)
         {
-            while (true)
-            {
-                yield return supplier();
-            }
+            yield return seed;
+            seed = next(seed);
+        }
+    }
+
+    public static IEnumerable<T> Generate<T>(Func<T> supplier)
+    {
+        while (true)
+        {
+            yield return supplier();
         }
     }
 }

@@ -32,7 +32,7 @@ public class InfListTest
     public void Replicate_NormalCount_ReturnsCorrectly()
     {
         var expected = new[] { 2, 2, 2, 2, 2 };
-        var actual = InfList.Replicate(2, 5).ToArray();
+        var actual = 2.Replicate(5).ToArray();
         Assert.That(actual, Is.EqualTo(expected));
     }
 
@@ -40,7 +40,7 @@ public class InfListTest
     public void Replicate_ZeroCount_ReturnsZeroEnumerable()
     {
         var expected = Array.Empty<int>();
-        var actual = InfList.Replicate(1, 0).ToArray();
+        var actual = 1.Replicate( 0).ToArray();
         Assert.That(actual, Is.EqualTo(expected));
     }
 
@@ -48,7 +48,7 @@ public class InfListTest
     public void Iterate_ReturnsCorrectly()
     {
         var expected = new[] { 1, 2, 4, 8, 16 };
-        var actual = InfList.Iterate(1, x => x * 2)
+        var actual = 1.Iterate(x => x * 2)
             .Take(5)
             .ToArray();
         Assert.That(actual, Is.EqualTo(expected));

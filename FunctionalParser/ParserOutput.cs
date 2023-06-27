@@ -1,35 +1,35 @@
 ﻿using Prelude;
 
 namespace FunctionalParser;
-    public class ParserOutput<T, R>
+    public class ParserOutput<TValue, TStream>
     {
-        public Option<T> Value { get; }
-        public R Remaining { get; }
+        public Option<TValue> Value { get; }
+        public TStream Remaining { get; }
         public bool IsSuccess { get; }
 
-        private ParserOutput(Option<T> value, R remaining, bool isSuccess)
+        private ParserOutput(Option<TValue> value, TStream remaining, bool isSuccess)
         {
             Value = value;
             Remaining = remaining;
             IsSuccess = isSuccess;
         }
 
-        public static ParserOutput<T, R> Success(T value, R remaining)
+        public static ParserOutput<TValue, TStream> Success(TValue value, TStream remaining)
         {
-            return new ParserOutput<T, R>(Option<T>.Some(value), remaining, true);
+            return new ParserOutput<TValue, TStream>(Option<TValue>.Some(value), remaining, true);
         }
         
-        public static ParserOutput<T, R> SuccessEmpty(R remaining)
+        public static ParserOutput<TValue, TStream> SuccessEmpty(TStream remaining)
         {
-            return new ParserOutput<T, R>(Option<T>.None(), remaining, true);
+            return new ParserOutput<TValue, TStream>(Option<TValue>.None(), remaining, true);
         }
 
-        public static ParserOutput<T, R> Fail(R remaining)
+        public static ParserOutput<TValue, TStream> Fail(TStream remaining)
         {
-            return new ParserOutput<T, R>(Option<T>.None(), remaining, false);
+            return new ParserOutput<TValue, TStream>(Option<TValue>.None(), remaining, false);
         }
 
-        public void Deconstruct(out Option<T> value, out R remaining, out bool isSuccess)
+        public void Deconstruct(out Option<TValue> value, out TStream remaining, out bool isSuccess)
         {
             value = Value;
             remaining = Remaining;
