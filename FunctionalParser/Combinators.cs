@@ -6,6 +6,11 @@ public delegate ParserOutput<T, R> IParser<T, R>(R stream);
 
 public static class Combinators
 {
+    public static IParser<T, R> Recursive<T, R>(Func<IParser<T, R>> parser)
+    {
+        return r => new Lazy<IParser<T, R>>(parser).Value(r);
+    }
+
     public static IParser<T, R> Nothing<T, R>()
     {
         return ParserOutput<T, R>.SuccessEmpty;

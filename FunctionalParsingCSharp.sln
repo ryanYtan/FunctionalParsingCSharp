@@ -6,9 +6,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prelude", "Prelude\Prelude.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreludeTest", "PreludeTest\PreludeTest.csproj", "{AFFD69B5-1BD4-43FA-8271-8F7271EC2360}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SPA", "SPA\SPA.csproj", "{680972D3-3A66-4E34-876F-DE0872595885}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageSimple", "LanguageSimple\LanguageSimple.csproj", "{680972D3-3A66-4E34-876F-DE0872595885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSON", "JSON\JSON.csproj", "{48CF9E7B-8878-4407-8A73-F16C69312DD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "App\App.csproj", "{67CEC8F1-85F5-48CD-AC7B-5CB65E153DF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageJson", "LanguageJson\LanguageJson.csproj", "{E307D2BD-0642-4AD6-91F0-7E2EAE9D3D45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,9 +34,13 @@ Global
 		{680972D3-3A66-4E34-876F-DE0872595885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{680972D3-3A66-4E34-876F-DE0872595885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{680972D3-3A66-4E34-876F-DE0872595885}.Release|Any CPU.Build.0 = Release|Any CPU
-		{48CF9E7B-8878-4407-8A73-F16C69312DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48CF9E7B-8878-4407-8A73-F16C69312DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48CF9E7B-8878-4407-8A73-F16C69312DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48CF9E7B-8878-4407-8A73-F16C69312DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67CEC8F1-85F5-48CD-AC7B-5CB65E153DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CEC8F1-85F5-48CD-AC7B-5CB65E153DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67CEC8F1-85F5-48CD-AC7B-5CB65E153DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CEC8F1-85F5-48CD-AC7B-5CB65E153DF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E307D2BD-0642-4AD6-91F0-7E2EAE9D3D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E307D2BD-0642-4AD6-91F0-7E2EAE9D3D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E307D2BD-0642-4AD6-91F0-7E2EAE9D3D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E307D2BD-0642-4AD6-91F0-7E2EAE9D3D45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
