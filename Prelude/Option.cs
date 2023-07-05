@@ -38,6 +38,7 @@ public abstract class Option<T> : IEquatable<Option<T>>
     public abstract bool IsNone();
     public abstract T Unwrap();
     public abstract bool Equals(Option<T>? other);
+    public abstract bool PredicateEquals(Option<T>? other, Func<T, T, bool> comparerFunction);
 }
 
 internal class Some<T> : Option<T>
@@ -95,7 +96,24 @@ internal class Some<T> : Option<T>
 
     public override bool Equals(Option<T>? other)
     {
-        return other != null && other.IsSome() && other.Unwrap()!.Equals(Unwrap());
+        if (other == null || other.IsNone())
+        {
+            return false;
+        }
+        T valueOther = other.Unwrap();
+        T self = Unwrap();
+        return self!.Equals(valueOther);
+    }
+
+    public override bool PredicateEquals(Option<T>? other, Func<T, T, bool> equalityComparer)
+    {
+        if (other == null || other.IsNone())
+        {
+            return false;
+        }
+        T valueOther = other.Unwrap();
+        T self = Unwrap();
+        return equalityComparer(valueOther, self);
     }
 
     public override int GetHashCode()
@@ -151,6 +169,11 @@ internal class None<T> : Option<T>
     }
 
     public override bool Equals(Option<T>? other)
+    {
+        return other != null && other.IsNone();
+    }
+    
+    public override bool PredicateEquals(Option<T>? other, Func<T, T, bool> equalityComparer)
     {
         return other != null && other.IsNone();
     }

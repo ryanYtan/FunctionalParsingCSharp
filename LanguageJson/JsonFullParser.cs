@@ -48,7 +48,7 @@ public static class JsonHelper
     }
 }
 
-public class JsonFullParser
+public static class JsonFullParser
 {
     public static JsonParser DigitNine => Range('1', '9');
     public static JsonParser Digit => Range('0', '9');

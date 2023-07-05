@@ -8,7 +8,11 @@ public static class Combinators
 {
     public static IParser<T, R> Recursive<T, R>(Func<IParser<T, R>> parser)
     {
-        return r => new Lazy<IParser<T, R>>(parser).Value(r);
+        return r =>
+        {
+            var func = new Lazy<IParser<T, R>>(parser).Value;
+            return func(r);
+        };
     }
 
     public static IParser<T, R> Nothing<T, R>()
